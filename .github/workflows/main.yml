@@ -40,6 +40,7 @@ jobs:
     - name: Test with pytest
       run: pytest
   lint:
+    needs: [train, test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -48,6 +49,7 @@ jobs:
       - name: pylint the setup file
         run:  pylint setup.py
   black:
+    needs: [train, test, lint]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
