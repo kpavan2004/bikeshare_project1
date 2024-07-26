@@ -58,7 +58,7 @@ jobs:
       - name: black the setup file
         run:  black .
   build:
-    needs: [train, test]
+    needs: [train, test, lint, black]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
