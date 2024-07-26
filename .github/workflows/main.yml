@@ -39,6 +39,22 @@ jobs:
       run: pip install -r requirements/test_requirements.txt
     - name: Test with pytest
       run: pytest
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip install pylint
+      - name: pylint the setup file
+        run:  pylint setup.py
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: pip install black
+      - name: black the setup file
+        run:  black .
   build:
     needs: [train, test]
     runs-on: ubuntu-latest
