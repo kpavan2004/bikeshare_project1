@@ -157,7 +157,6 @@ cython_debug/
 #My exclusions
 __pychache__
 .whl
-.pkl
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
